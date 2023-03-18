@@ -1,0 +1,194 @@
+/*falta un import*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600&display=swap');
+
+/*Metaclases; este toque es para que los input queden
+dentro de las etiquteas div*/
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    background-image: url("https://landing.zytheme.com/siena/assets/images/background/bg-1.png");
+    /* background-position: 0; */
+    background-repeat: no-repeat;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    /* border: 4px solid blue; */
+    padding: 5px 70px;
+}
+
+header {
+    /* border: 4px solid purple; */
+    display: flex;
+    /* background-color: aquamarine; */
+}
+
+.logo{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center ;
+}
+
+/*logo box*/
+/* header section{
+    flex: 8; 
+} */
+
+nav {
+    flex: 8;
+    /* display: flex; */
+    /* border: 1px solid green; */
+    /* justify-content: flex-end; */
+}
+
+nav ul {
+    /* border: 1px solid red; */
+    padding: 0;
+    /* *** UTILIZACION DE FLEXBOX *** */
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+    /* border: 1px solid orange; */
+    margin: 0 20px;
+}
+
+nav a {
+    color: #6262a0;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav a:hover {
+    color: #664ffa;
+}
+
+h1 {
+    color: #6262a0;
+    font-size: 2.7em;
+    font-weight: 700;
+}
+
+p {
+    color: #ababc7;
+}
+
+.form-container {
+    background-color: #ffffff;
+    /* border: 1px solid red; */
+    padding: 10px 40px;
+    /*falta el shadow box*/
+    -webkit-box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    -moz-box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    box-shadow: 2px 4px 4px 1px rgba(214, 206, 214, 0.63);
+    border-radius: 4px;
+    /* flex: 4; */
+}
+
+.form-container h3 {
+    color: #6262a0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.filed-input {
+    margin-bottom: 9px;
+}
+
+.filed-input input {
+    width: 100%;
+    background-color: #f7f6ff;
+    color: #222;
+    border: 1px solid #ced4ea;
+    border-radius: 5px;
+    font-size: 0.9em;
+    outline: none;
+    padding: 6px 6px 6px 20px;
+}
+
+.filed-input label {
+    color: #664ffa;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    /*atributo para que se comporte como bloque y no solo su espacio base*/
+    display: block;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #664ffa;
+    border-radius: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #3b1df9;
+}
+
+/* ===================================== */
+/* Clases para los contendores del medio
+y superior */
+
+.central_subcontainer{
+    display: flex;
+    padding: 60px 10px;
+}
+
+.text_subcontainer{
+    flex: 6;
+    padding: 40px;
+}
+
+.form_subcontainer{
+    flex: 4;
+}
+
+.bottom_subcontainer{
+    padding: 60px 10px;
+}
+
+.bottom_subcontainer h2{
+    text-align: center;
+    color: #6262a0;
+    padding: 0 30%;
+    font-size: 2em;
+    width: 100%;
+}
+
+.bottom_subcontainer .card_container{
+    display: flex;   
+}
+
+.card{
+    text-align: center;
+    width: 30%;
+    padding: 10px 30px;
+}
+
+.card h3{
+    font-size: 2em;
+    color: #6262a0;
+}
+
+.card img{
+    width: 80px;
+    height: 80px;
+}
+
+.card p{
+    color: #A0A0BA;
+}
