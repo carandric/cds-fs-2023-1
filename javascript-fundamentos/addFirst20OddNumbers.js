@@ -15,4 +15,12 @@ const sumOddFirstV2 = (firstOddNumbers) => {
         sum += nextOddNumber;
     }
     return sum;
-}
+};
+
+let resultado1 = sumFirst20Odd(20);
+
+console.log("The result is:", resultado1);
+
+let resultado2 = sumOddFirstV2(20);
+
+console.log("The result is:", resultado2);
