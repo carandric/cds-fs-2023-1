@@ -4,12 +4,24 @@
 /*********************************************************************************/
 import React, {Suspense} from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { LazyLoading } from "../Components/LazyLoading";
+import Signup from "../Pages/Signup";
 /*********************************************************************************/
 //CAMBIAR POR CARGAS PEREZOSAS
 // import {Home} from "../Pages/Home";
 const Home = React.lazy(() => import("../Pages/Home")); //Coje por default el index
 // import {WearDetail} from "../Pages/WearDetail";
 const WearDetail = React.lazy(() => import("../Pages/WearDetail")); //Coje por default el index
+// const Login = React.lazy(() => import("../Pages/Login"));
+const Login = React.lazy(() => import('../Pages/Login')
+  // .then((module) => {
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve(module);
+  //     }, 5000)
+  //   })
+  // })
+);
 //SUSPENSE
 /*********************************************************************************/
 
@@ -18,7 +30,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element:(
-          <Suspense fallback={<div>Cargando...</div>}>
+          <Suspense fallback={<LazyLoading/>}>
             <Home />
           </Suspense>
         )
@@ -27,10 +39,26 @@ export const router = createBrowserRouter([
     {
       path: "/wear-detail",
       element:(
-        <Suspense fallback={<div>Cargando...</div>}>
-          <WearDetail />
+        <Suspense fallback={<LazyLoading/>}>
+          <WearDetail/>
         </Suspense>
       )
       //<WearDetail />
+    },
+    {
+      path: "/login",
+      element:(
+        <Suspense fallback={<LazyLoading/>}>
+          <Login />
+        </Suspense>
+      )
+    },
+    {
+      path: "/signup",
+      element:(
+        <Suspense fallback={<LazyLoading/>}>
+          <Signup/>
+        </Suspense>
+      )
     }
-])
+]);
