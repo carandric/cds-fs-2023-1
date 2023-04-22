@@ -1,14 +1,16 @@
-
-import {RouterProvider} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { MenuContextStore } from "./Contexts/MenuContext";
 import { GlobalStyle } from "./globalStyles";
-import {router} from "./Routes/Router";
-
+import { router } from "./Routes/Router";
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <RouterProvider router={router} />
+      {/* Se carga el contexto a nivel de este componente que está arriba de la jerarquía */}
+      <MenuContextStore>
+        <RouterProvider router={router} />
+      </MenuContextStore>
     </>
-  )
-}
+  );
+};

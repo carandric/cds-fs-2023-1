@@ -1,8 +1,11 @@
+import { useParams } from 'react-router-dom';
 import { Button } from '../../Components/Button';
 import {Page} from '../../Components/Page';
 import { WearDetailContainer, WearDetailContent, WearImageContainer } from './styles';
 
 const WearDetail = () => {
+
+  const {id} = useParams();
 
   return (
     <Page>
@@ -11,6 +14,7 @@ const WearDetail = () => {
           <img src="https://hmcolombia.vtexassets.com/arquivos/ids/1833172-483-725/Camisa-le%C3%B1adora-de-algodon---Red-Checked---H-M-CO.jpg?v=637928777918300000" />
         </WearImageContainer>
         <WearDetailContent>
+          <h5>Referencia: {id}</h5>
           <h3>Camisa Leñadora</h3>
           <h4>2 meses / Masculino</h4>
           <p>

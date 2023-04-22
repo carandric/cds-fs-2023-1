@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         //<Home />
     },
     {
-      path: "/wear-detail",
+      path: "/wear-detail/:id",
       element:(
         <Suspense fallback={<LazyLoading/>}>
           <WearDetail/>
