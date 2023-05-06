@@ -24,3 +24,16 @@ export const MenuContainer = styled.div`
     font-size: 1.2em;
   }
 `;
+
+export const MenuIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    font-size: 1.6em;
+  }
+  &:hover {
+    color: #666;
+    cursor: pointer;
+  }
+`;

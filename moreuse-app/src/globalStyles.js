@@ -20,6 +20,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const Content = styled.section`
+  margin: 10px 20px;
+`;
+
+
 export const FormContainer = styled.section`
   display: flex;
   justify-content: center;
@@ -37,7 +42,8 @@ export const FormControl = styled.div`
     display:block;
     text-align: center;
   }
-  input{
+
+  input, textarea, select{
     width: 100%;
     font-family: "Monserrat";
     font-size: 1.1em;
@@ -46,6 +52,11 @@ export const FormControl = styled.div`
     text-align: center;
     border-radius: 4px;
   }
+
+  textarea {
+    text-align: left !important
+  }
+
   span{
     color: red;
     font-size: 0.89em;
