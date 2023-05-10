@@ -23,7 +23,7 @@ app.post("/saludar", (req,res,next) => {
   res.send(`Hola ${nombre} tienes ${edad} años `);
 })
 
-//3.Params
+//3.Params /saludar/crico/43
 app.put("/saludar/:nombre/:edad", (req, res, next) => {
   const nombre = req.params.nombre;
   const edad = req.params.edad;
