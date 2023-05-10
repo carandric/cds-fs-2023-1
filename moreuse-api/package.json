@@ -1,0 +1,19 @@
+{
+  "name": "moreuse-api",
+  "version": "1.0.0",
+  "description": "moreuse api express",
+  "main": "app.js",
+  "scripts": {
+    "start:prod": "node app.js",
+    "start:dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "crico",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
