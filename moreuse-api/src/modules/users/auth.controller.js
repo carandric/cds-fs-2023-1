@@ -1,4 +1,3 @@
-const { response } = require("express");
 const authService = require("./auth.services");
 
 const login = async (req, res) => {
@@ -12,7 +11,7 @@ const login = async (req, res) => {
 }
 
 const logout = (req, res) => {
-  const idUser = '1234'; //TODO
+  const {idUser} = req.payload;
   const response = authService.logout(idUser);
   res.status(200).json(response);
 }
@@ -28,7 +27,7 @@ const signup = async (req, res) => {
 }
 
 const info = (req, res) => {
-  const idUser = '1234'; //TODO
+  const {idUser} = req.payload;
   const response = authService.info(idUser);
   res.status(200).json(response);
 }

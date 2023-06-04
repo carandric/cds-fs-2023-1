@@ -4,15 +4,17 @@
   "description": "moreuse api express",
   "main": "app.js",
   "scripts": {
-    "start:prod": "node app.js",
-    "start:dev": "nodemon app.js",
+    "start:pro": "SET NODE_ENV=pro&&node app.js",
+    "start:dev": "SET NODE_ENV=dev&&nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "crico",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.0"
   },
   "devDependencies": {

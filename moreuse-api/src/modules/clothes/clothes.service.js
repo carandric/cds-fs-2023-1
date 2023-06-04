@@ -60,6 +60,21 @@ const getDetail = async (clotheId) => {
   }
 }
 
+const getMyStuff = async (sellerId) => {
+  try {
+    const query = {
+      sellerId: sellerId
+    }
+
+    const clothes = await Clothe.find(query);
+    return{
+      clothes
+    }
+  } catch (error) {
+    throw error.handled ? error : errorHandler(dictErrors.SERVER_ERROR)
+  }
+}
+
 const changeStatus = async (clotheId, statusId) => {
   try {
     const query = {"_id": clotheId}
@@ -79,5 +94,6 @@ module.exports = {
   add,
   getAll,
   getDetail,
+  getMyStuff,
   changeStatus
 }
