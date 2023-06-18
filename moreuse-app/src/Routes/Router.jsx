@@ -3,8 +3,9 @@
 /*Definición donde estaran las rutas*/
 /*********************************************************************************/
 import React, {Suspense} from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useLocation } from "react-router-dom";
 import { LazyLoading } from "../Components/LazyLoading";
+import { useEffect } from "react";
 /*********************************************************************************/
 //CAMBIAR POR CARGAS PEREZOSAS
 // import {Home} from "../Pages/Home";
@@ -15,7 +16,7 @@ const Signup = React.lazy(() => import("../Pages/Signup"));
 const Profile = React.lazy(() => import("../Pages/Profile"));
 const MyClothes = React.lazy(() => import("../Pages/MyClothes"));
 const AddClothing = React.lazy(() => import("../Pages/AddClothing"));
-// const Login = React.lazy(() => import("../Pages/Login"));
+const Logout = React.lazy(() => import("../Pages/Logout"));
 const Login = React.lazy(() => import('../Pages/Login')
 // .then((module) => {
   //   return new Promise((resolve) => {
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
       element:(
         <Suspense fallback={<LazyLoading/>}>
           <Login />
+        </Suspense>
+      )
+    },
+    {
+      path: "/logout",
+      element:(
+        <Suspense fallback={<LazyLoading/>}>
+          <Logout/>
         </Suspense>
       )
     },

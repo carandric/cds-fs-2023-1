@@ -1,4 +1,7 @@
 import React, {createContext, useState} from "react";
+import { HTTP_METHODS, httpRequest } from "../Utils/HttpRequest";
+import { getToken, removeToken } from "../Utils/TokenLocalStorage";
+import { useEffect } from "react";
 
 const initialState = {
   isAuth: false,
@@ -22,8 +25,37 @@ export const UserContextStore = (props) => {
     setUser(initialState);
   }
 
+  /*
+  useEffect(() => {
+    validateSession();
+  }, []); // los corchetes indican que solo lo haga la primera vez
+  */
+
+  const validateSession = () => {
+    const token =  getToken();
+    if (token && !user.isAuth) {
+      requestUser();
+    }
+  }
+
+  const requestUser = async () => {
+    try {
+      const response = await httpRequest({
+        method: HTTP_METHODS.GET,
+        endpoint:'/auth',
+        token: getToken()
+      });
+      const {data} = response;
+      setAuthorization(data);
+    } catch (error) {
+      console.error('requestUser', error);
+      removeAuthorization();
+      removeToken();
+    }
+  }
+
   return(
-    <UserContext.Provider value={{user, setAuthorization, removeAuthorization}}>
+    <UserContext.Provider value={{user, validateSession, removeAuthorization}}>
       {props.children}
     </UserContext.Provider>
   )

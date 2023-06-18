@@ -95,5 +95,6 @@ module.exports = {
   getAll,
   getDetail,
   getMyStuff,
-  changeStatus
+  changeStatus,
+  CLOTHES_STATUS: CLOTHES_STATUS
 }
