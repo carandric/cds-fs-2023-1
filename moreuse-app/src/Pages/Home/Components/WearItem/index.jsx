@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { WearItemContainer, WearItemImage } from "./styles";
+import { NumericFormat } from "react-number-format";
 
 export const WearItem = ({ _id, image, name, target, gender, price }) => {
   return (
@@ -15,7 +16,8 @@ export const WearItem = ({ _id, image, name, target, gender, price }) => {
         {/* </div> */}
         <h3>{name}</h3>
         <h5> {target} / {gender==='F' ? 'Niña':'Niño'}</h5>
-        <h4>{price}</h4>
+        {/* <h4>{price}</h4> */}
+        <h4><NumericFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'}/></h4>
       </WearItemContainer>
       {/* // </div> */}
     </Link>

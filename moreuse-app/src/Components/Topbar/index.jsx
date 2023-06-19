@@ -24,10 +24,10 @@ export const Topbar = () => {
       <div>
         <img src="/assets/logo.png" alt="logo" width="100px" />
       </div>
-      <p>
+      {/* <p> */}
         {/* {isOpen ? "abierto" : "cerrado"} */}
-        {menuState.isOpen ? "abierto" : "cerrado"}
-      </p>
+        {/* {menuState.isOpen ? "abierto" : "cerrado"} */}
+      {/* </p> */}
     </TopbarContainer>
     // </header>
   )

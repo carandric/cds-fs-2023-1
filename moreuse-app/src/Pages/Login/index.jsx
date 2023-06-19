@@ -27,7 +27,7 @@ const Login = () => {
         body: data,
       });
       console.log(response);
-      
+
       const {token} = response.data;
       setToken(token);
 

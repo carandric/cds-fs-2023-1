@@ -40,13 +40,16 @@ export const UserContextStore = (props) => {
 
   const requestUser = async () => {
     try {
+
       const response = await httpRequest({
         method: HTTP_METHODS.GET,
         endpoint:'/auth',
         token: getToken()
       });
+
       const {data} = response;
       setAuthorization(data);
+
     } catch (error) {
       console.error('requestUser', error);
       removeAuthorization();

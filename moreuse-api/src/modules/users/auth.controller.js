@@ -10,9 +10,9 @@ const login = async (req, res) => {
   }
 }
 
-const logout = (req, res) => {
+const logout = async (req, res) => {
   const {idUser} = req.payload;
-  const response = authService.logout(idUser);
+  const response = await authService.logout(idUser);
   res.status(200).json(response);
 }
 
@@ -26,10 +26,14 @@ const signup = async (req, res) => {
   }
 }
 
-const info = (req, res) => {
-  const {idUser} = req.payload;
-  const response = authService.info(idUser);
-  res.status(200).json(response);
+const info = async (req, res) => {
+  try {
+    const {idUser} = req.payload;
+    const response = await authService.info(idUser);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(error.status).json(error.response);
+  }
 }
 
 module.exports = {

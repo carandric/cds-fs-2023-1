@@ -29,7 +29,7 @@ const login = async (email, password) => {
   }
 }
 
-const logout = (idUser) => {
+const logout = async (idUser) => {
   return {
     message: 'user logout'
   }
