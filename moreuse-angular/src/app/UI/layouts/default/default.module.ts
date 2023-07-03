@@ -5,6 +5,7 @@ import { DefaultComponent } from './default.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ContactusComponent } from '../../components/contactus/contactus.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { ContactusComponent } from '../../components/contactus/contactus.compone
   imports: [
     CommonModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class DefaultModule { }

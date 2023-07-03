@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/fullscreen/login']);
     }
     else {
-      alert('Este formulario no es valido');
+      alert('Este formulario no es válido');
     }
   }
 

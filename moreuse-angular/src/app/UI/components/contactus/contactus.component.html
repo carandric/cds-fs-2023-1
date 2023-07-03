@@ -1,2 +1,47 @@
-<p>contactus works!</p>
-<button style="background-color: tomato !important;" class="btn btn-personalized btn-lg" type="button" >Example button</button>
+<form class="text-center border border-light p-5"  [formGroup]="contactusForm">
+  <p class="h4 mb-4">Contact us</p>
+  <!-- Name input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="form4Example1" class="form-control" formControlName="name"/>
+    <label class="form-label" for="form4Example1">Name</label>
+    <div *ngIf="campos['name'].touched || campos['name'].dirty">
+      <div *ngFor="let validation of validationMessages.name">
+        <label class="text-danger" *ngIf="campos['name'].hasError(validation.type)">{{validation.message}}</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="form4Example2" class="form-control" formControlName="email"/>
+    <label class="form-label" for="form4Example2">Email address</label>
+    <div *ngIf="campos['email'].touched || campos['email'].dirty">
+      <div *ngFor="let validation of validationMessages.email">
+          <label class="text-danger"
+              *ngIf="campos['email'].hasError(validation.type)">{{validation.message}}</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <textarea class="form-control" id="form4Example3" rows="4" formControlName="message"></textarea>
+    <label class="form-label" for="form4Example3">Message</label>
+    <div *ngIf="campos['message'].touched || campos['message'].dirty">
+      <div *ngFor="let validation of validationMessages.message">
+        <label class="text-danger" *ngIf="campos['message'].hasError(validation.type)">{{validation.message}}</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
+    <label class="form-check-label" for="form4Example4">
+      Send me a copy of this message
+    </label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4" (click)="enviar()">Send</button>
+</form>
