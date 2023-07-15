@@ -1,6 +1,10 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Userusecase } from 'src/app/domain/models/User/usecase/userusecase';
+import { User } from 'src/app/domain/models/user';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-register',
@@ -29,7 +33,10 @@ export class RegisterComponent implements OnInit {
     ]
   }
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private httpClient:HttpClient,
+              private _userUseCase: Userusecase) {
   }
 
   ngOnInit(): void {
@@ -69,8 +76,71 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+
     if (this.registerForm.valid) {
-      this.router.navigate(['/fullscreen/login']);
+
+      let name = this.registerForm.controls['name'].value;
+      let email = this.registerForm.controls['email'].value;
+      let password = this.registerForm.controls['password'].value;
+      let confirmPassword = this.registerForm.controls['confirmPassword'].value;
+      let address = 'Default' //this.registerForm.controls['address'].value;
+      let phone = '33000' //this.registerForm.controls['phone'].value;
+
+      let user = new User();
+      user.name = name;
+      user.phone = phone;
+      user.address = address;
+      user.email = email;
+      user.password = password;
+
+      let token = localStorage.getItem("token");
+      let headers;
+
+      if (token) {
+        headers = new HttpHeaders()
+          .set("Contect-Type", "application/json")
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${token}`)
+      }
+
+      const options = {headers: headers};
+
+      // this.httpClient.get(
+      //   'http://localhost:3000/auth/', //usuario
+      //   options).subscribe({
+      //     next: (response: any) => {
+      //       alert('Usuario registrado')
+      //       this.router.navigate(["/fullscreen/login"]);
+      //     },
+      //     error: (error) => console.log(error),
+      //     complete: () => {
+      //       console.log("complete ... usuario registrado")
+      //       // this.router.navigate(["/"]);
+      //     }
+      //   });
+
+      this._userUseCase.signup(user).subscribe(
+        {
+          next: (response: any) => {
+            console.log(response);
+            // alert("User registered !!!" + '\n*message: ' + response.message + '\n*User: ' + JSON.stringify(response.user) );
+            Swal.fire({
+              title: "User " + response.user.name + " registered !!!",
+              // text: '*message: ' + response.message + '\n*User: ' + JSON.stringify(response.user),
+              text: 'User registered sucessfully!',
+              icon: "success",
+            })
+            this.router.navigate(["/fullscreen/login"]);
+          },
+          error: (response: any) => {
+            console.log(response);
+            alert('*Message: ' + response.message+ '\n*Error.message: '+ response.error.message);
+
+          },
+          complete: () => {this.router.navigate(["/fullscreen/login"]);}
+        }
+      )
+
     }
     else {
       alert('Este formulario no es válido');

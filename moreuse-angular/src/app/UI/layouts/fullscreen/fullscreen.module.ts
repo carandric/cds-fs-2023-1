@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from '../../components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from '../../components/register/register.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { RegisterComponent } from '../../components/register/register.component'
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class FullscreenModule { }
